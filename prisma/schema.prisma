@@ -16,13 +16,13 @@ model User {
   id    Int     @id @default(autoincrement()) 
   email String  @unique
   name  String?
-  posts Post[]
+  files Files[]
 } 
-model Post { 
+model Files { 
   id        Int     @id @default(autoincrement()) 
-  title     String
-  content   String?
-  published Boolean @default(false) 
+  name      String?
+  link      String
+  getLink   String  @unique
   author    User    @relation(fields: [authorId], references: [id]) 
   authorId  Int
 } 
